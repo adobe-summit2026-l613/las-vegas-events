@@ -69,7 +69,7 @@
   --spacing-xs: 4px;
 
   /* color schemes */
-  color-scheme: light dark;
+  color-scheme: dark light;
 
   /* color tokens */
   --color-gray-100: #f1f1f1;
@@ -166,6 +166,9 @@
   --color-background: light-dark(var(--color-light), var(--color-dark));
   --color-shaded: light-dark(#f9f9f9, #111);
 
+  --champagne-gold: #c9a84c;
+  --electric-violet: #9c7ff5;
+
   /* fonts */
   --font-family: montserrat, "Trebuchet MS", sans-serif;
 
@@ -259,13 +262,34 @@ a {
   }
 
   &.btn-primary {
-    color: var(--color-background);
-    background-color: var(--color-text);
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-family: Inter, system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--champagne-gold) 0%, #b8963f 100%);
+    border: 2px solid var(--champagne-gold);
+    border-radius: 32px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 
     &.btn-outline {
       color: var(--color-text);
       background: transparent;
     }
+  }
+
+  &.btn-primary:hover,
+  &.btn-primary:focus-visible {
+    background: linear-gradient(135deg, #d4b456 0%, var(--champagne-gold) 100%);
+    border-color: var(--champagne-gold);
+    box-shadow: 0 6px 25px rgba(201, 168, 76, 0.4), 0 0 20px rgba(201, 168, 76, 0.2);
+    transform: translateY(-2px);
   }
 
   &.btn-secondary {
