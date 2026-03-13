@@ -1,0 +1,217 @@
+/* ── Filter bar ────────────────────────────────────────────────── */
+
+.events-list-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.events-list-filter-label {
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: light-dark(var(--color-gray-600), var(--color-gray-400));
+  flex-shrink: 0;
+}
+
+.events-list-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.events-list-pill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid light-dark(var(--color-gray-300), var(--color-gray-700));
+  background: transparent;
+  color: light-dark(var(--color-gray-700), var(--color-gray-300));
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  line-height: 1.4;
+}
+
+.events-list-pill:hover {
+  border-color: var(--champagne-gold);
+  color: var(--champagne-gold);
+}
+
+.events-list-pill.active {
+  background: var(--champagne-gold);
+  border-color: var(--champagne-gold);
+  color: #0a0a0f;
+}
+
+/* ── Grid ──────────────────────────────────────────────────────── */
+
+.events-list-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 600px) {
+  .events-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Card ──────────────────────────────────────────────────────── */
+
+.events-list-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: light-dark(var(--color-gray-100), var(--color-gray-900));
+  border: 1px solid light-dark(var(--color-gray-200), #2a2a2f);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.events-list-card:hover {
+  box-shadow: 0 8px 32px light-dark(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.5));
+  transform: translateY(-2px);
+}
+
+/* Full-card click target for mouse users */
+.events-list-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* ── Card image ────────────────────────────────────────────────── */
+
+.events-list-card-image {
+  position: relative;
+  padding-bottom: 56.25%;
+  background: light-dark(var(--color-gray-200), #1a1a20);
+  flex-shrink: 0;
+}
+
+.events-list-card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.25s ease;
+}
+
+.events-list-card:hover .events-list-card-image img {
+  opacity: 0.85;
+}
+
+/* Category badge on image */
+.events-list-card-category {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: light-dark(rgba(255, 255, 255, 0.92), rgba(10, 10, 15, 0.85));
+  color: var(--champagne-gold);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Card body ─────────────────────────────────────────────────── */
+
+.events-list-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.events-list-card-title {
+  margin: 0;
+  font-size: var(--body-font-size-l);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.events-list-card-title a {
+  color: light-dark(var(--color-dark), var(--color-light));
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  transition: color 0.2s ease;
+}
+
+.events-list-card-title a:hover {
+  color: var(--champagne-gold);
+}
+
+.events-list-card-description {
+  margin: 0;
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+  color: light-dark(var(--color-gray-600), var(--color-gray-400));
+  flex: 1;
+}
+
+/* ── Card footer ───────────────────────────────────────────────── */
+
+.events-list-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid light-dark(var(--color-gray-200), #2a2a2f);
+}
+
+.events-list-card-price {
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  color: light-dark(var(--color-dark), var(--color-light));
+}
+
+.events-list-card-price-unit {
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  color: light-dark(var(--color-gray-500), var(--color-gray-500));
+}
+
+.events-list-card-cta {
+  padding: 8px 20px;
+  border: 1px solid light-dark(var(--color-gray-300), var(--color-gray-700));
+  border-radius: 4px;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  color: light-dark(var(--color-dark), var(--color-light));
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+}
+
+.events-list-card:hover .events-list-card-cta {
+  border-color: var(--champagne-gold);
+  color: var(--champagne-gold);
+}
+
+/* ── Empty state ───────────────────────────────────────────────── */
+
+.events-list-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px;
+  color: light-dark(var(--color-gray-500), var(--color-gray-500));
+}
