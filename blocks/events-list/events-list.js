@@ -71,7 +71,7 @@ function renderGrid(grid, events, activeCategory) {
   });
 }
 
-function renderFilters(filtersEl, events, categories, grid) {
+function renderFilters(filtersEl, events, categories, grid, activeCategory) {
   filtersEl.innerHTML = '';
 
   const label = document.createElement('span');
@@ -82,7 +82,7 @@ function renderFilters(filtersEl, events, categories, grid) {
   const pills = document.createElement('div');
   pills.className = 'events-list-pills';
 
-  let active = getCategoryParam();
+  let active = activeCategory;
 
   ['all', ...categories].forEach((cat) => {
     const btn = document.createElement('button');
@@ -128,8 +128,9 @@ export default async function init(el) {
 
   const events = data.data || [];
   const categories = getUniqueCategories(events);
-  const activeCategory = getCategoryParam();
+  const param = getCategoryParam();
+  const activeCategory = categories.includes(param) ? param : 'all';
 
-  renderFilters(filtersEl, events, categories, grid);
+  renderFilters(filtersEl, events, categories, grid, activeCategory);
   renderGrid(grid, events, activeCategory);
 }
