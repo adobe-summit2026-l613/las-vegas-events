@@ -279,8 +279,8 @@ function decorateDoc() {
   decorateHeader();
   loadTemplate();
 
-  const scheme = localStorage.getItem('color-scheme');
-  if (scheme) document.body.classList.add(scheme);
+  const scheme = localStorage.getItem('color-scheme') || 'dark-scheme';
+  document.body.classList.add(scheme);
 
   const pageId = window.location.hash?.replace('#', '');
   if (pageId) localStorage.setItem('lazyhash', pageId);

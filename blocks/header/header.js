@@ -58,11 +58,7 @@ function decorateScheme(btn) {
   btn.addEventListener('click', async () => {
     const { body } = document;
 
-    let currPref = localStorage.getItem('color-scheme');
-    if (!currPref) {
-      currPref = matchMedia('(prefers-color-scheme: dark)')
-        .matches ? 'dark-scheme' : 'light-scheme';
-    }
+    let currPref = localStorage.getItem('color-scheme') || 'dark-scheme';
 
     const theme = currPref === 'dark-scheme'
       ? { add: 'light-scheme', remove: 'dark-scheme' }
